@@ -176,6 +176,30 @@ img { display: block; max-width: 100%; }
 .orbit-one { width: 75%; aspect-ratio: 2.2; transform: rotate(27deg); }
 .orbit-two { width: 75%; aspect-ratio: 2.2; transform: rotate(-27deg); }
 
+.barca-feature { color: #fff; background: linear-gradient(145deg, #080d28, #16071d 70%, #28080b); }
+.barca-heading { display: grid; grid-template-columns: .55fr 1.3fr .72fr; gap: 4vw; align-items: end; margin-bottom: clamp(3rem, 7vw, 6rem); }
+.barca-heading h2 { margin: 0; font-family: var(--display); font-size: clamp(3.2rem, 7.4vw, 7.8rem); line-height: .83; letter-spacing: -.075em; text-transform: uppercase; }
+.barca-heading h2 em { color: #e32219; font-style: normal; text-shadow: .08em .08em 0 #164fff; }
+.barca-heading > p { margin: 0; color: #adb8dd; line-height: 1.65; }
+.barca-stage { --rx: 0deg; --ry: 0deg; position: relative; min-height: clamp(34rem, 62vw, 62rem); overflow: hidden; border: 1px solid rgba(255,255,255,.2); background: #07123c; transform: perspective(1300px) rotateX(var(--rx)) rotateY(var(--ry)); transform-style: preserve-3d; transition: transform .2s ease-out, box-shadow .35s; box-shadow: 0 4rem 8rem rgba(0,0,0,.38); }
+.barca-stage:hover { box-shadow: 0 5rem 9rem rgba(0,0,0,.5); }
+.barca-stage > img { position: absolute; inset: -3%; width: 106%; height: 106%; object-fit: cover; object-position: center; transform: translateZ(-25px) scale(1.055); animation: stadiumBreath 9s ease-in-out infinite alternate; }
+.barca-vignette { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(2,5,20,.05), rgba(2,5,20,.08) 45%, rgba(2,5,20,.8)), linear-gradient(90deg, rgba(2,5,20,.45), transparent 45%); }
+.barca-grid { position: absolute; z-index: 2; inset: 0; opacity: .22; background-image: linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px); background-size: 5rem 5rem; mask-image: linear-gradient(90deg, #000, transparent 55%); transform: translateZ(18px); }
+.float-panel { position: absolute; z-index: 4; display: grid; min-width: 13rem; padding: 1rem 1.15rem; border: 1px solid rgba(255,255,255,.35); background: rgba(5,12,40,.58); backdrop-filter: blur(13px); transform-style: preserve-3d; box-shadow: 1rem 1rem 3rem rgba(0,0,0,.2); }
+.float-panel small { color: #a9b7e5; font-size: .5rem; letter-spacing: .17em; }
+.float-panel strong { margin: .4rem 0; font-family: var(--display); font-size: 1.25rem; letter-spacing: -.03em; }
+.float-panel span { color: #e0b547; font-size: .48rem; letter-spacing: .11em; }
+.panel-top { top: 7%; right: 6%; transform: translateZ(70px) rotateY(-8deg); animation: floatPanel 4.4s ease-in-out infinite; }
+.panel-score { top: 38%; left: 4%; transform: translateZ(95px) rotateY(8deg); animation: floatPanel 5.2s ease-in-out -1.2s infinite; }
+.panel-score strong { font-size: 2rem; }
+.panel-tech { right: 7%; bottom: 16%; transform: translateZ(110px) rotateY(-6deg); animation: floatPanel 4.8s ease-in-out -.6s infinite; }
+.stage-caption { position: absolute; z-index: 5; right: 4%; bottom: 4%; left: 4%; display: flex; align-items: end; justify-content: space-between; gap: 3rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.5); transform: translateZ(80px); }
+.stage-caption span { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 3rem); letter-spacing: -.04em; }
+.stage-caption p { max-width: 27rem; margin: 0; color: #c0c8df; line-height: 1.55; }
+@keyframes stadiumBreath { to { transform: translateZ(-25px) scale(1.085); } }
+@keyframes floatPanel { 0%,100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+
 .transformation { color: var(--white); background: #07123c; }
 .transformation-heading { display: grid; grid-template-columns: .55fr 1.3fr .7fr; gap: 4vw; align-items: end; margin-bottom: clamp(3rem, 7vw, 6rem); }
 .transformation-heading h2 { margin: 0; font-family: var(--display); font-size: clamp(3rem, 6.9vw, 7.3rem); line-height: .84; letter-spacing: -.07em; text-transform: uppercase; }
@@ -274,6 +298,11 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
   .project, .project:nth-child(2), .project:nth-child(3) { margin: 0 0 2rem; }
   .project-info { flex-direction: column; gap: .7rem; }
   .transformation-heading { grid-template-columns: 1fr; }
+  .barca-heading { grid-template-columns: 1fr; }
+  .barca-heading h2 { font-size: clamp(3.5rem, 15vw, 6rem); }
+  .barca-stage { transform: none; }
+  .panel-score { top: 48%; }
+  .stage-caption { align-items: start; flex-direction: column; gap: .7rem; }
   .transformation-heading h2 { font-size: clamp(3.5rem, 15vw, 6rem); }
   .transformation-heading > p { max-width: 32rem; }
   .transformation-stage { max-width: 39rem; }
@@ -300,6 +329,12 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
   .skill-card { min-height: 21rem; }
   .tech-stack { grid-template-columns: 1fr; }
   .project-art { min-height: 23rem; }
+  .barca-stage { min-height: 37rem; }
+  .float-panel { min-width: 10.5rem; padding: .75rem; }
+  .panel-top { top: 4%; right: 3%; }
+  .panel-score { top: 35%; left: 3%; }
+  .panel-tech { right: 3%; bottom: 23%; }
+  .stage-caption p { font-size: .78rem; }
   .morph-card { aspect-ratio: 3 / 4.6; }
   .morph-label { bottom: 1rem; }
   .morph-label-before { right: 1rem; }
