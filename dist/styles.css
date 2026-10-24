@@ -203,13 +203,25 @@ img { display: block; max-width: 100%; }
 .terminal code { display: block; margin-top: 45px; color: #a9b3c9; font: .85rem/2.15 monospace; }
 .terminal code span { color: #6ca2ff; }
 
-.education-card { position: relative; display: grid; grid-template-columns: 100px 155px 1fr; gap: 26px; margin-top: 65px; padding: 36px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(115deg, rgba(18,104,255,.1), rgba(255,255,255,.025)); }
-.education-card::after { content: "EDUCATION"; position: absolute; right: -16px; bottom: -35px; color: rgba(255,255,255,.025); font: 800 clamp(4rem,10vw,9rem) Manrope, sans-serif; letter-spacing: -.06em; pointer-events: none; }
-.education-line { position: relative; }
-.education-line::before { content: ""; position: absolute; top: 8px; bottom: -80px; left: 11px; width: 1px; background: linear-gradient(var(--blue), transparent); }
-.education-line i { position: relative; z-index: 1; display: block; width: 23px; height: 23px; border: 6px solid #15254c; border-radius: 50%; background: var(--blue); box-shadow: 0 0 24px rgba(18,104,255,.65); }
-.education-year { color: #8690a6; font: 700 .75rem/1.4 Manrope, sans-serif; letter-spacing: .13em; }
+.education-intro { display: grid; grid-template-columns: 1fr .7fr; gap: 8%; margin: 55px 0 36px 55px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+.education-intro p { max-width: 690px; margin: 0; font: 600 clamp(1.05rem,2vw,1.35rem)/1.6 Manrope, sans-serif; }
+.education-intro span { align-self: end; color: #7f899e; font-size: .72rem; }
+.education-timeline { position: relative; display: grid; gap: 16px; margin-left: 55px; }
+.education-timeline::before { content: ""; position: absolute; top: 45px; bottom: 45px; left: 31px; width: 1px; background: linear-gradient(var(--blue), rgba(228,33,63,.65), var(--gold)); }
+.education-card { position: relative; display: grid; grid-template-columns: 64px 120px 1fr; align-items: center; gap: 25px; min-height: 180px; padding: 25px 32px 25px 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(110deg, rgba(18,104,255,.08), rgba(255,255,255,.025)); transform-style: preserve-3d; transition: border-color .25s ease, background .25s ease; }
+.education-card:hover { border-color: rgba(104,160,255,.35); background: linear-gradient(110deg, rgba(18,104,255,.13), rgba(255,255,255,.04)); }
+.education-card::after { content: ""; position: absolute; right: -85px; width: 250px; height: 250px; border: 1px solid rgba(255,255,255,.035); border-radius: 50%; pointer-events: none; }
+.education-current { border-color: rgba(246,199,90,.24); background: linear-gradient(110deg, rgba(18,104,255,.12), rgba(246,199,90,.055)); }
+.education-marker { position: relative; z-index: 2; display: grid; height: 100%; place-items: center; background: rgba(6,9,18,.8); }
+.education-marker span { position: absolute; top: 8px; color: #69748a; font: 700 .62rem Manrope, sans-serif; }
+.education-marker i { display: block; width: 17px; height: 17px; border: 5px solid #15254c; border-radius: 50%; background: var(--blue); box-shadow: 0 0 22px rgba(18,104,255,.65); }
+.education-current .education-marker i { border-color: #3e3521; background: var(--gold); box-shadow: 0 0 22px rgba(246,199,90,.48); }
+.education-logo { position: relative; z-index: 1; display: grid; width: 106px; height: 106px; place-items: center; overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 22px; background: #fff; box-shadow: 0 15px 35px rgba(0,0,0,.2); transform: translateZ(18px); }
+.education-logo img { width: 100%; height: 100%; object-fit: contain; }
+.education-logo-dual { grid-template-columns: repeat(2,1fr); gap: 5px; width: 140px; padding: 7px; background: #f7f8fb; }
+.education-logo-dual img { min-width: 0; height: 86px; }
 .education-label { margin: 0 0 8px; color: var(--blue-light); font-size: .72rem; font-weight: 800; text-transform: uppercase; }
+.education-content { position: relative; z-index: 1; min-width: 0; }
 .education-content h3 { margin: 0; font: 700 clamp(1.5rem,3vw,2.2rem) Manrope, sans-serif; }
 .education-content > p:not(.education-label) { max-width: 650px; margin: 12px 0 18px; color: var(--muted); }
 .education-content > span { display: inline-flex; padding: 7px 10px; border-radius: 7px; color: #f0c66c; background: rgba(246,199,90,.09); font-size: .7rem; font-weight: 700; }
@@ -344,9 +356,13 @@ img { display: block; max-width: 100%; }
   .skill-row b { display: none; }
   .project-grid { grid-template-columns: 1fr; }
   .project-visual, .terminal { min-height: 300px; }
-  .education-card { grid-template-columns: 38px 1fr; padding: 26px; }
-  .education-year { grid-column: 2; }
-  .education-content { grid-column: 2; }
+  .education-intro { grid-template-columns: 1fr; gap: 15px; margin-left: 35px; }
+  .education-timeline { margin-left: 0; }
+  .education-timeline::before { left: 25px; }
+  .education-card { grid-template-columns: 50px 90px 1fr; gap: 15px; padding: 22px 18px 22px 0; }
+  .education-logo { width: 82px; height: 82px; border-radius: 17px; }
+  .education-logo-dual { grid-template-columns: 1fr; width: 82px; height: 110px; padding: 5px; }
+  .education-logo-dual img { height: 47px; }
   .github-copy { padding: 35px 24px; }
   .github-panel { margin: 0 14px 14px; padding: 20px; }
   .repo-head { grid-template-columns: auto 1fr; }
@@ -374,6 +390,15 @@ img { display: block; max-width: 100%; }
   .code-card { min-width: 165px; padding: 13px; }
   .project-body { grid-template-columns: 1fr; }
   .project-number { display: none; }
+  .education-intro { margin-left: 0; }
+  .education-timeline::before { left: 21px; }
+  .education-card { grid-template-columns: 42px 1fr; gap: 14px; padding: 20px 17px 22px 0; }
+  .education-marker { grid-row: 1 / 3; }
+  .education-logo, .education-logo-dual { grid-column: 2; width: 76px; height: 76px; }
+  .education-logo-dual { grid-template-columns: repeat(2,1fr); width: 116px; padding: 5px; }
+  .education-logo-dual img { height: 62px; }
+  .education-content { grid-column: 2; }
+  .education-content h3 { overflow-wrap: anywhere; }
   .repo-stats { grid-template-columns: 1fr; }
   .contribution-grid { grid-template-columns: repeat(10,1fr); }
   .barca-profile img { width: 50px; height: 50px; }
