@@ -14,6 +14,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Lewati ke konten</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <div class="noise" aria-hidden="true"></div>
   <div class="cursor" aria-hidden="true"><span>VIEW</span></div>
 
@@ -53,6 +54,11 @@
     <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-depth" aria-hidden="true">
+        <i class="depth-ring depth-ring-one"></i>
+        <i class="depth-ring depth-ring-two"></i>
+        <i class="depth-cube"><b></b><b></b><b></b></i>
+      </div>
       <div class="hero-topline reveal">
         <p>IT student portfolio</p>
         <p>Makassar · Indonesia</p>
@@ -94,28 +100,28 @@
         <p class="reveal">Kemampuan yang saya kembangkan melalui latihan, eksplorasi mandiri, dan proyek personal.</p>
       </div>
       <div class="skill-grid">
-        <article class="skill-card reveal">
+        <article class="skill-card reveal" data-tilt>
           <span class="skill-number">01</span>
           <div class="skill-icon" aria-hidden="true">&lt;/&gt;</div>
           <h3>Front-End Development</h3>
           <p>Membangun website responsif dan interaktif dengan struktur yang rapi.</p>
           <ul><li>HTML semantik</li><li>CSS responsif</li><li>JavaScript dasar</li></ul>
         </article>
-        <article class="skill-card reveal">
+        <article class="skill-card reveal" data-tilt>
           <span class="skill-number">02</span>
           <div class="skill-icon" aria-hidden="true">UI</div>
           <h3>UI/UX Design</h3>
           <p>Merancang antarmuka yang jelas, konsisten, dan nyaman digunakan.</p>
           <ul><li>Wireframe</li><li>Layout & hierarchy</li><li>Prototyping</li></ul>
         </article>
-        <article class="skill-card reveal">
+        <article class="skill-card reveal" data-tilt>
           <span class="skill-number">03</span>
           <div class="skill-icon" aria-hidden="true">✦</div>
           <h3>Creative Design</h3>
           <p>Mengolah foto, poster, dan konten visual untuk kebutuhan digital.</p>
           <ul><li>Desain grafis</li><li>Photo editing</li><li>Konten media sosial</li></ul>
         </article>
-        <article class="skill-card reveal">
+        <article class="skill-card reveal" data-tilt>
           <span class="skill-number">04</span>
           <div class="skill-icon" aria-hidden="true">IT</div>
           <h3>IT Support</h3>
@@ -142,28 +148,37 @@
       </div>
 
       <div class="project-list">
-        <article class="project project-red reveal" tabindex="0">
-          <div class="project-meta"><span>01 / Web project</span><span>Front-end</span></div>
+        <article class="project project-red reveal" tabindex="0" data-tilt>
+          <div class="project-meta"><span>01 / Project utama</span><span>HTML · CSS · JavaScript</span></div>
           <div class="project-art art-pulse" aria-hidden="true">
-            <span class="micro">HTML / CSS / JS</span><b>BUILD<br>FOR<br>WEB.</b><i></i>
+            <span class="micro">PORTOFOLIO SAYA / 2026</span><b>CODE<br>MEETS<br>STORY.</b><i></i>
+            <div class="code-window"><span></span><span></span><span></span><code>&lt;main&gt;<br>&nbsp; create();<br>&nbsp; animate();<br>&lt;/main&gt;</code></div>
           </div>
-          <div class="project-info"><h3>Personal Portfolio</h3><p>Website responsif dengan animasi, pemutar audio, dan interaksi before–after.</p></div>
+          <div class="project-info"><h3>Portofolio Interaktif</h3><p>Website responsif dengan desain 3D, animasi scroll, pemutar audio, dan interaksi before–after.</p></div>
         </article>
 
-        <article class="project project-blue reveal" tabindex="0">
-          <div class="project-meta"><span>02 / Practice</span><span>IT support</span></div>
-          <div class="project-art art-match" aria-hidden="true">
-            <span>STATUS: ONLINE</span><div class="ball"></div><b>SYSTEM<br>READY</b><small>Check · Fix · Improve</small>
+        <article class="project project-blue reveal" tabindex="0" data-tilt>
+          <div class="project-meta"><span>02 / Creative AI</span><span>Image transformation</span></div>
+          <div class="project-art project-photo-art" aria-hidden="true">
+            <img src="assets/tigreal-transformation.png" alt="">
+            <div class="project-photo-shade"></div>
+            <span class="photo-kicker">IDENTITY → HERO</span>
+            <b>HUMAN<br>TO TIGREAL</b>
+            <small>Concept · Direction · Image editing</small>
           </div>
-          <div class="project-info"><h3>Computer Setup</h3><p>Latihan instalasi software, pengecekan perangkat, dan troubleshooting dasar.</p></div>
+          <div class="project-info"><h3>Hero Transformation</h3><p>Transformasi foto menjadi karakter guardian dengan identitas wajah tetap dipertahankan.</p></div>
         </article>
 
-        <article class="project project-light reveal" tabindex="0">
-          <div class="project-meta"><span>03 / Design study</span><span>UI/UX</span></div>
-          <div class="project-art art-identity" aria-hidden="true">
-            <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><b>UI</b><small>Simple · Clear · Useful</small>
+        <article class="project project-light reveal" tabindex="0" data-tilt>
+          <div class="project-meta"><span>03 / Visual experience</span><span>Design · Audio</span></div>
+          <div class="project-art project-photo-art stadium-art" aria-hidden="true">
+            <img src="assets/hero-background.png" alt="">
+            <div class="project-photo-shade"></div>
+            <span class="photo-kicker">VISUAL COMPOSITION</span>
+            <b>BARÇA<br>ATMOSPHERE</b>
+            <small>Photo composition · Anthem player · Parallax</small>
           </div>
-          <div class="project-info"><h3>Interface Study</h3><p>Eksplorasi layout, hierarki visual, dan pengalaman pengguna untuk produk digital.</p></div>
+          <div class="project-info"><h3>Barcelona Experience</h3><p>Komposisi stadion, warna klub, parallax hero, dan pemutar anthem dalam satu pengalaman web.</p></div>
         </article>
       </div>
     </section>

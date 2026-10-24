@@ -13,8 +13,15 @@ const anthemAudio = document.querySelector('#anthem-audio');
 const anthemState = document.querySelector('.anthem-state');
 const morphCard = document.querySelector('.morph-card');
 const morphRange = document.querySelector('.morph-range');
+const progressBar = document.querySelector('.scroll-progress span');
+const tiltItems = document.querySelectorAll('[data-tilt]');
 
-const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 30);
+const updateHeader = () => {
+  header.classList.toggle('scrolled', window.scrollY > 30);
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+  progressBar.style.transform = `scaleX(${progress})`;
+};
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
@@ -50,6 +57,19 @@ if (matchMedia('(pointer:fine)').matches) {
   projects.forEach((project) => {
     project.addEventListener('mouseenter', () => cursor.classList.add('active'));
     project.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+  });
+  tiltItems.forEach((item) => {
+    item.addEventListener('mousemove', (event) => {
+      const rect = item.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - .5;
+      const y = (event.clientY - rect.top) / rect.height - .5;
+      item.style.setProperty('--rx', `${y * -8}deg`);
+      item.style.setProperty('--ry', `${x * 10}deg`);
+    });
+    item.addEventListener('mouseleave', () => {
+      item.style.setProperty('--rx', '0deg');
+      item.style.setProperty('--ry', '0deg');
+    });
   });
 }
 
