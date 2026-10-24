@@ -154,6 +154,15 @@ img { display: block; max-width: 100%; }
 .portrait-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(4,7,14,.82)); }
 .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; filter: saturate(.88) contrast(1.03); }
 .portrait-overlay { position: absolute; inset: 0; background: linear-gradient(125deg, rgba(18,104,255,.25), transparent 38%, rgba(228,33,63,.2)); mix-blend-mode: screen; }
+.welcome-portrait { inset: auto -12% auto -6%; top: 48%; aspect-ratio: 16 / 10; border-color: rgba(132,177,255,.32); border-radius: 32px; box-shadow: -22px 28px 70px rgba(0,0,0,.52), 0 0 45px rgba(18,104,255,.18), 0 0 70px rgba(228,33,63,.1); transform: translateY(-50%) translateZ(35px); }
+.welcome-portrait::before { content: ""; position: absolute; z-index: 4; top: -35%; left: -55%; width: 24%; height: 175%; background: linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent); filter: blur(5px); pointer-events: none; transform: rotate(18deg); animation: photoSheen 6.5s ease-in-out infinite; }
+.welcome-portrait::after { z-index: 2; background: linear-gradient(90deg,rgba(3,7,16,.2),transparent 42%,rgba(3,7,16,.08)), linear-gradient(180deg,transparent 62%,rgba(2,5,12,.55)); }
+.welcome-portrait img { object-position: center; filter: saturate(1.08) contrast(1.04); transition: transform 1.2s cubic-bezier(.2,.8,.2,1), filter .5s ease; }
+.hero-visual:hover .welcome-portrait img { transform: scale(1.035); filter: saturate(1.14) contrast(1.07); }
+.welcome-portrait .portrait-overlay { z-index: 3; opacity: .6; background: linear-gradient(120deg,rgba(228,33,63,.2),transparent 32%,transparent 70%,rgba(18,104,255,.25)); }
+.hero-motto { position: absolute; z-index: 5; right: -7%; bottom: 4%; left: -1%; display: flex; align-items: center; justify-content: center; gap: 13px; color: #e8edff; font: 800 clamp(.72rem,1.3vw,.92rem) Manrope,sans-serif; letter-spacing: .1em; text-align: center; text-transform: uppercase; text-shadow: 0 0 20px rgba(83,142,255,.55); transform: translateZ(70px); }
+.hero-motto::before { content: ""; position: absolute; z-index: -1; inset: -12px 12%; border: 1px solid rgba(255,255,255,.13); border-radius: 999px; background: linear-gradient(90deg,rgba(18,104,255,.14),rgba(8,12,24,.82),rgba(228,33,63,.14)); box-shadow: 0 14px 35px rgba(0,0,0,.28); backdrop-filter: blur(12px); }
+.hero-motto i { color: var(--gold); font-style: normal; animation: pulse 1.8s ease-in-out infinite; }
 .code-card { position: absolute; z-index: 4; display: flex; min-width: 190px; flex-direction: column; padding: 16px 18px; border: 1px solid rgba(255,255,255,.16); border-radius: 15px; background: rgba(8,13,25,.85); box-shadow: 0 18px 45px rgba(0,0,0,.42); backdrop-filter: blur(14px); transform: translateZ(75px); animation: float 5s ease-in-out infinite; }
 .code-card small { color: var(--blue-light); font-size: .6rem; letter-spacing: .18em; }
 .code-card strong { margin: 5px 0; font: 800 .87rem Manrope, sans-serif; }
@@ -376,6 +385,7 @@ img { display: block; max-width: 100%; }
 @keyframes float { 50% { translate: 0 -12px; } }
 @keyframes sound { to { height: 19px; } }
 @keyframes caret { 50% { opacity: 0; } }
+@keyframes photoSheen { 0%, 16% { left: -55%; opacity: 0; } 38% { opacity: .9; } 58%, 100% { left: 135%; opacity: 0; } }
 
 @media (max-width: 980px) {
   .hero { grid-template-columns: 1fr; padding-top: 170px; }
@@ -405,8 +415,11 @@ img { display: block; max-width: 100%; }
   .hero-meta { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
   .hero-visual { min-height: 540px; }
   .portrait-frame { inset: 8% 1% 4% 5%; }
+  .welcome-portrait { inset: auto 0; top: 45%; aspect-ratio: 16 / 10; transform: translateY(-50%) translateZ(35px); }
+  .hero-motto { right: 3%; bottom: 11%; left: 3%; }
+  .hero-motto::before { inset: -10px 2%; }
   .code-card-top { right: -1%; }
-  .code-card-bottom { left: 0; }
+  .code-card-bottom { bottom: 18%; left: 0; }
   .section-heading { grid-template-columns: 35px 1fr; }
   .about-layout { padding-left: 35px; }
   .skill-row { grid-template-columns: 35px 1fr; gap: 12px; padding: 22px 5px; }
@@ -451,6 +464,8 @@ img { display: block; max-width: 100%; }
   .hero-actions .button { width: 100%; }
   .hero-meta { grid-template-columns: 1fr; }
   .hero-visual { min-height: 480px; }
+  .welcome-portrait { top: 43%; aspect-ratio: 4 / 3; }
+  .hero-motto { bottom: 7%; gap: 8px; letter-spacing: .055em; }
   .code-card { min-width: 165px; padding: 13px; }
   .project-body { grid-template-columns: 1fr; }
   .project-number { display: none; }
