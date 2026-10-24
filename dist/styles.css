@@ -232,6 +232,34 @@ img { display: block; max-width: 100%; }
 .transformation-notes span { color: #f1b72c; font-size: .62rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
 .transformation-notes p { margin: .7rem 0 0; color: #b6c0dd; font-size: .87rem; line-height: 1.55; }
 
+.quran-section { position: relative; overflow: hidden; color: #f7f2df; background: radial-gradient(circle at 50% 20%, #183c35, #071815 48%, #050d0c 100%); isolation: isolate; }
+.quran-section::before { content: ""; position: absolute; z-index: -1; inset: 0; opacity: .12; background-image: linear-gradient(30deg, #d7b760 12%, transparent 12.5%, transparent 87%, #d7b760 87.5%, #d7b760), linear-gradient(150deg, #d7b760 12%, transparent 12.5%, transparent 87%, #d7b760 87.5%, #d7b760), linear-gradient(30deg, #d7b760 12%, transparent 12.5%, transparent 87%, #d7b760 87.5%, #d7b760), linear-gradient(150deg, #d7b760 12%, transparent 12.5%, transparent 87%, #d7b760 87.5%, #d7b760); background-position: 0 0, 0 0, 3rem 5.25rem, 3rem 5.25rem; background-size: 6rem 10.5rem; }
+.quran-orb { position: absolute; z-index: -1; border-radius: 50%; filter: blur(4px); }
+.orb-a { top: -13rem; right: -10rem; width: 33rem; aspect-ratio: 1; border: 1px solid rgba(215,183,96,.45); box-shadow: inset 0 0 8rem rgba(215,183,96,.12), 0 0 8rem rgba(215,183,96,.08); animation: quranOrbit 14s linear infinite; }
+.orb-b { bottom: -9rem; left: -7rem; width: 20rem; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.2); animation: quranOrbit 10s linear infinite reverse; }
+.quran-heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; margin-bottom: clamp(3rem, 7vw, 6rem); }
+.quran-heading > p { max-width: 35rem; margin: 0; color: #b9c9c2; line-height: 1.7; }
+.quran-card { position: relative; max-width: 68rem; margin: auto; padding: clamp(2rem, 5vw, 5rem); border: 1px solid rgba(215,183,96,.55); color: #f9f4e6; background: linear-gradient(145deg, rgba(255,255,255,.1), rgba(255,255,255,.025)); box-shadow: 0 3rem 8rem rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.15); backdrop-filter: blur(18px); transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d; transition: transform .2s ease-out; }
+.quran-card::before, .quran-card::after { content: ""; position: absolute; width: 4rem; height: 4rem; border-color: #d7b760; pointer-events: none; }
+.quran-card::before { top: .8rem; left: .8rem; border-top: 1px solid; border-left: 1px solid; }
+.quran-card::after { right: .8rem; bottom: .8rem; border-right: 1px solid; border-bottom: 1px solid; }
+.quran-card > * { transform: translateZ(28px); }
+.quran-mark { position: absolute; top: 1.4rem; right: 1.6rem; color: #d7b760; font-size: 2rem; animation: quranPulse 3s ease-in-out infinite; }
+.surah-name { margin: 0 0 3rem; color: #d7b760; font-size: .65rem; font-weight: 600; letter-spacing: .2em; text-align: center; }
+.ayah-block { position: relative; text-align: center; }
+.ayah-number { position: absolute; top: .3rem; right: 0; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid rgba(215,183,96,.65); border-radius: 50%; color: #d7b760; font-family: "Noto Naskh Arabic", serif; }
+.arabic { margin: 0; font-family: "Noto Naskh Arabic", "Traditional Arabic", serif; font-size: clamp(2.8rem, 6.5vw, 6.2rem); font-weight: 600; line-height: 1.55; text-shadow: 0 .08em 1.2em rgba(215,183,96,.18); }
+.transliteration { margin: .7rem 0; color: #d7b760; font-size: clamp(.9rem, 1.4vw, 1.15rem); font-style: italic; letter-spacing: .03em; }
+.translation { max-width: 44rem; margin: 0 auto; color: #e6eee9; font-size: clamp(1.05rem, 1.8vw, 1.45rem); line-height: 1.65; }
+.ayah-divider { display: flex; align-items: center; gap: 1rem; max-width: 28rem; margin: 2.4rem auto; color: #d7b760; }
+.ayah-divider i { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(215,183,96,.65)); }
+.ayah-divider i:last-child { transform: rotate(180deg); }
+.quran-source { display: table; margin: 3rem auto 0; padding-bottom: .3rem; border-bottom: 1px solid rgba(215,183,96,.6); color: #d7b760; font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; }
+.quran-reflection { margin: clamp(3rem, 6vw, 5rem) 0 0; font-family: var(--display); font-size: clamp(1.7rem, 4.5vw, 4.6rem); line-height: .95; letter-spacing: -.05em; text-align: center; }
+.quran-reflection span { display: block; color: transparent; -webkit-text-stroke: 1px #d7b760; }
+@keyframes quranOrbit { to { transform: rotate(360deg) scale(1.06); } }
+@keyframes quranPulse { 50% { opacity: .45; transform: rotate(20deg) scale(.85); } }
+
 .profile { display: grid; grid-template-columns: minmax(18rem, .8fr) minmax(20rem, 1fr); gap: 9vw; align-items: center; color: var(--ink); background: var(--paper); }
 .profile-photo { position: relative; }
 .profile-photo::before { content: ""; position: absolute; z-index: 1; inset: -1.1rem 1.1rem 1.1rem -1.1rem; border: 1px solid var(--red); }
@@ -301,6 +329,8 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
   .barca-heading { grid-template-columns: 1fr; }
   .barca-heading h2 { font-size: clamp(3.5rem, 15vw, 6rem); }
   .barca-stage { transform: none; }
+  .quran-heading { align-items: start; flex-direction: column; }
+  .quran-card { transform: none; }
   .panel-score { top: 48%; }
   .stage-caption { align-items: start; flex-direction: column; gap: .7rem; }
   .transformation-heading h2 { font-size: clamp(3.5rem, 15vw, 6rem); }
@@ -331,6 +361,9 @@ footer { display: flex; align-items: center; justify-content: space-between; gap
   .project-art { min-height: 23rem; }
   .barca-stage { min-height: 37rem; }
   .float-panel { min-width: 10.5rem; padding: .75rem; }
+  .quran-card { padding: 3rem 1.2rem 2rem; }
+  .ayah-number { position: static; margin: 0 auto .5rem; }
+  .arabic { font-size: clamp(2.4rem, 12vw, 4rem); }
   .panel-top { top: 4%; right: 3%; }
   .panel-score { top: 35%; left: 3%; }
   .panel-tech { right: 3%; bottom: 23%; }
