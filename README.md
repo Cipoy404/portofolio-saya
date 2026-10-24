@@ -1,4 +1,4 @@
-# Eka Wahyu Maulidan — Portfolio
+# Heldi Irwansah — Portfolio
 
 Static personal portfolio built with semantic HTML, responsive CSS, and lightweight vanilla JavaScript.
 

@@ -77,7 +77,7 @@ copyButton.addEventListener('click', async () => {
   copyButton.textContent = 'Berhasil disalin';
   setTimeout(() => {
     toast.classList.remove('show');
-    copyButton.textContent = 'Salin username';
+    copyButton.textContent = 'Salin nama';
   }, 1800);
 });
 
