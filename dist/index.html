@@ -3,299 +3,189 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080808">
-  <meta name="description" content="Portofolio personal Heldi Irwansah — ruang untuk karya, eksperimen visual, dan cerita.">
-  <title>Heldi Irwansah — Portfolio</title>
+  <meta name="theme-color" content="#070a12">
+  <meta name="description" content="Portofolio Heldi Irwansah, web developer yang membangun website responsif dan pengalaman digital interaktif.">
+  <title>Heldi Irwansah — Web Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600&family=Noto+Naskh+Arabic:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/hero-background.png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/profile.jpg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Lewati ke konten</a>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"><span>VIEW</span></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
 
   <header class="site-header" data-header>
-    <a class="brand" href="#home" aria-label="Kembali ke beranda">
-      <img src="assets/profile.jpg" alt="Foto Heldi Irwansah">
-      <span>HI<span class="brand-dot">.</span></span>
+    <a class="brand" href="#home" aria-label="Beranda Heldi Irwansah">
+      <span class="brand-mark">HI</span>
+      <span class="brand-copy"><strong>Heldi Irwansah</strong><small>Web Developer</small></span>
     </a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span>Menu</span><i></i><i></i>
-    </button>
-    <nav id="site-nav" class="site-nav" aria-label="Navigasi utama">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><i></i><i></i></button>
+    <nav class="site-nav" id="site-nav" aria-label="Navigasi utama">
       <a href="#tentang">Tentang</a>
       <a href="#keahlian">Keahlian</a>
-      <a href="#karya">Proyek</a>
-      <a href="#kontak">Kontak</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#pendidikan">Pendidikan</a>
+      <a href="#github">GitHub</a>
     </nav>
   </header>
 
-  <aside class="anthem-player" aria-label="Pemutar lagu Cant del Barça">
-    <button class="anthem-toggle" type="button" aria-label="Putar Cant del Barça" aria-pressed="false">
-      <span class="anthem-icon" aria-hidden="true">
-        <i></i><i></i><i></i><i></i>
-      </span>
-      <span class="anthem-copy">
-        <small>Now available</small>
-        <strong>Cant del Barça</strong>
-      </span>
-      <span class="anthem-state">PLAY</span>
-    </button>
-    <audio id="anthem-audio" preload="metadata">
-      <source src="https://s3.amazonaws.com/fcbarcelona-static-files/ringtones/Official-Anthem.wav" type="audio/wav">
-    </audio>
-  </aside>
-
   <main id="main">
-    <section class="hero" id="home" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-shade" aria-hidden="true"></div>
-      <div class="hero-depth" aria-hidden="true">
-        <i class="depth-ring depth-ring-one"></i>
-        <i class="depth-ring depth-ring-two"></i>
-        <i class="depth-cube"><b></b><b></b><b></b></i>
-      </div>
-      <div class="hero-topline reveal">
-        <p>IT student portfolio</p>
-        <p>Makassar · Indonesia</p>
-        <p>© 2026</p>
-      </div>
-      <div class="hero-copy">
-        <p class="eyebrow reveal">IT · Web · Creative Technology</p>
-        <h1 id="hero-title" class="reveal">
-          <span>HELDI</span>
-          <span>IRWANSAH<span class="red-dot">.</span></span>
-        </h1>
-        <div class="hero-bottom reveal">
-          <p>Membangun solusi digital—<br>dari kode sampai visual.</p>
-          <a class="round-link" href="#karya" aria-label="Lihat eksplorasi pilihan">
-            <span>Jelajahi</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
-          </a>
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <div class="availability"><i></i> Terbuka untuk belajar & berkolaborasi</div>
+        <p class="eyebrow">Hello, world! Saya</p>
+        <h1>Heldi<br><span>Irwansah.</span></h1>
+        <h2>Web Developer yang mengubah ide menjadi website responsif, interaktif, dan mudah digunakan.</h2>
+        <p class="hero-summary">Saya fokus pada pengembangan website menggunakan HTML, CSS, JavaScript, Git, dan GitHub—mulai dari menyusun struktur hingga publikasi.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#proyek">Lihat proyek <span>↘</span></a>
+          <a class="button button-secondary" href="https://github.com/Cipoy404" target="_blank" rel="noreferrer">GitHub saya <span>↗</span></a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>Indonesia</strong><span>Domisili</span></div>
+          <div><strong>Web Development</strong><span>Fokus utama</span></div>
+          <div><strong>2026</strong><span>Portfolio edition</span></div>
         </div>
       </div>
-      <div class="scroll-mark" aria-hidden="true"><span>SCROLL</span><i></i></div>
+
+      <div class="hero-visual reveal" data-tilt>
+        <div class="visual-grid" aria-hidden="true"></div>
+        <div class="portrait-frame">
+          <img src="assets/profile.jpg" alt="Potret Heldi Irwansah">
+          <div class="portrait-overlay"></div>
+        </div>
+        <div class="code-card code-card-top"><small>STATUS</small><strong>BUILDING</strong><span>new experiences_</span></div>
+        <div class="code-card code-card-bottom"><small>STACK</small><strong>HTML / CSS / JS</strong><span>git push origin main</span></div>
+        <div class="orbit orbit-a" aria-hidden="true"></div>
+        <div class="orbit orbit-b" aria-hidden="true"></div>
+      </div>
     </section>
 
-    <section class="intro section-pad" id="tentang">
-      <div class="section-label reveal"><span>01</span><p>Tentang saya</p></div>
-      <div class="intro-grid">
-        <h2 class="statement reveal">Teknologi bukan hanya dipakai—<em>tetapi dipahami.</em></h2>
-        <div class="intro-copy reveal">
-          <p>Halo, saya <strong>Heldi Irwansah</strong>, seorang pelajar di bidang teknologi informasi yang tertarik pada pengembangan web, desain antarmuka, dan pemecahan masalah teknis.</p>
-          <p>Saya senang mempelajari bagaimana sebuah sistem bekerja, merancang tampilan yang mudah digunakan, lalu mengubah ide menjadi produk digital yang dapat dicoba langsung.</p>
-          <a class="text-link" href="#keahlian">Lihat bidang yang saya kuasai <span>↘</span></a>
+    <section class="about section" id="tentang">
+      <div class="section-heading reveal">
+        <span class="section-index">01</span>
+        <p class="section-kicker">Tentang saya</p>
+        <h2>Developer yang belajar melalui <em>proyek nyata.</em></h2>
+      </div>
+      <div class="about-layout">
+        <p class="about-lead reveal">Saya menikmati proses memahami masalah, menulis kode, mencoba hasilnya, lalu memperbaiki detail sampai website terasa nyaman digunakan.</p>
+        <div class="about-copy reveal">
+          <p>Perjalanan saya di bidang IT berawal dari rasa ingin tahu terhadap cara website bekerja. Dari sana saya mempelajari struktur HTML, styling CSS, interaksi JavaScript, version control Git, dan pengelolaan repository melalui GitHub.</p>
+          <p>Saya terus mengembangkan kemampuan melalui proyek personal. Portofolio yang sedang Anda lihat adalah salah satu proyek tersebut—dirancang, diuji, dan dipublikasikan sebagai website aktif.</p>
         </div>
       </div>
     </section>
 
-    <section class="skills section-pad" id="keahlian">
-      <div class="skills-heading">
-        <div class="section-label reveal"><span>02</span><p>Bidang & keahlian</p></div>
-        <h2 class="reveal">WHAT I<br><em>CAN DO.</em></h2>
-        <p class="reveal">Kemampuan yang saya kembangkan melalui latihan, eksplorasi mandiri, dan proyek personal.</p>
+    <section class="skills section" id="keahlian">
+      <div class="section-heading reveal">
+        <span class="section-index">02</span>
+        <p class="section-kicker">Keahlian</p>
+        <h2>Tools yang saya gunakan untuk <em>membangun web.</em></h2>
       </div>
-      <div class="skill-grid">
-        <article class="skill-card reveal" data-tilt>
-          <span class="skill-number">01</span>
-          <div class="skill-icon" aria-hidden="true">&lt;/&gt;</div>
-          <h3>Front-End Development</h3>
-          <p>Membangun website responsif dan interaktif dengan struktur yang rapi.</p>
-          <ul><li>HTML semantik</li><li>CSS responsif</li><li>JavaScript dasar</li></ul>
-        </article>
-        <article class="skill-card reveal" data-tilt>
-          <span class="skill-number">02</span>
-          <div class="skill-icon" aria-hidden="true">UI</div>
-          <h3>UI/UX Design</h3>
-          <p>Merancang antarmuka yang jelas, konsisten, dan nyaman digunakan.</p>
-          <ul><li>Wireframe</li><li>Layout & hierarchy</li><li>Prototyping</li></ul>
-        </article>
-        <article class="skill-card reveal" data-tilt>
-          <span class="skill-number">03</span>
-          <div class="skill-icon" aria-hidden="true">✦</div>
-          <h3>Creative Design</h3>
-          <p>Mengolah foto, poster, dan konten visual untuk kebutuhan digital.</p>
-          <ul><li>Desain grafis</li><li>Photo editing</li><li>Konten media sosial</li></ul>
-        </article>
-        <article class="skill-card reveal" data-tilt>
-          <span class="skill-number">04</span>
-          <div class="skill-icon" aria-hidden="true">IT</div>
-          <h3>IT Support</h3>
-          <p>Menangani kebutuhan teknis dasar komputer dan konektivitas.</p>
-          <ul><li>Instalasi software</li><li>Troubleshooting</li><li>Jaringan dasar</li></ul>
-        </article>
+      <div class="skill-list">
+        <article class="skill-row reveal" data-tilt><span>01</span><div><h3>HTML</h3><p>Menyusun halaman dengan struktur semantik, aksesibel, dan mudah dipelihara.</p></div><b>Structure</b></article>
+        <article class="skill-row reveal" data-tilt><span>02</span><div><h3>CSS</h3><p>Membangun layout responsif, animasi, transformasi 3D, dan visual yang konsisten.</p></div><b>Presentation</b></article>
+        <article class="skill-row reveal" data-tilt><span>03</span><div><h3>JavaScript</h3><p>Menambahkan interaksi, kontrol antarmuka, serta perilaku dinamis pada website.</p></div><b>Interaction</b></article>
+        <article class="skill-row reveal" data-tilt><span>04</span><div><h3>Git & GitHub</h3><p>Mengelola versi kode, commit, repository, dan alur publikasi proyek.</p></div><b>Workflow</b></article>
+        <article class="skill-row reveal" data-tilt><span>05</span><div><h3>Responsive Web</h3><p>Memastikan tampilan tetap rapi pada desktop, tablet, dan perangkat mobile.</p></div><b>Experience</b></article>
       </div>
-      <div class="tech-stack reveal">
-        <span>TECH STACK</span><div><i>HTML5</i><i>CSS3</i><i>JavaScript</i><i>Figma</i><i>Canva</i><i>GitHub</i><i>VS Code</i></div>
-      </div>
+      <div class="stack-strip reveal"><span>VS CODE</span><i>•</i><span>HTML5</span><i>•</i><span>CSS3</span><i>•</i><span>JAVASCRIPT</span><i>•</i><span>GIT</span><i>•</i><span>GITHUB</span></div>
     </section>
 
-    <div class="marquee" aria-label="Bidang yang sedang dieksplorasi">
-      <div class="marquee-track">
-        <span>WEB DEVELOPMENT</span><i>✦</i><span>UI/UX DESIGN</span><i>✦</i><span>IT SUPPORT</span><i>✦</i><span>CREATIVE TECHNOLOGY</span><i>✦</i>
-        <span>WEB DEVELOPMENT</span><i>✦</i><span>UI/UX DESIGN</span><i>✦</i><span>IT SUPPORT</span><i>✦</i><span>CREATIVE TECHNOLOGY</span><i>✦</i>
+    <section class="projects section" id="proyek">
+      <div class="section-heading reveal">
+        <span class="section-index">03</span>
+        <p class="section-kicker">Proyek pilihan</p>
+        <h2>Karya yang menunjukkan <em>cara saya bekerja.</em></h2>
       </div>
-    </div>
-
-    <section class="work section-pad" id="karya">
-      <div class="work-heading">
-        <div class="section-label reveal"><span>03</span><p>Proyek pilihan</p></div>
-        <p class="work-note reveal">Contoh proyek personal yang menunjukkan proses belajar dan penerapan kemampuan IT saya.</p>
-      </div>
-
-      <div class="project-list">
-        <article class="project project-red reveal" tabindex="0" data-tilt>
-          <div class="project-meta"><span>01 / Project utama</span><span>HTML · CSS · JavaScript</span></div>
-          <div class="project-art art-pulse" aria-hidden="true">
-            <span class="micro">PORTOFOLIO SAYA / 2026</span><b>CODE<br>MEETS<br>STORY.</b><i></i>
-            <div class="code-window"><span></span><span></span><span></span><code>&lt;main&gt;<br>&nbsp; create();<br>&nbsp; animate();<br>&lt;/main&gt;</code></div>
-          </div>
-          <div class="project-info"><h3>Portofolio Interaktif</h3><p>Website responsif dengan desain 3D, animasi scroll, pemutar audio, dan interaksi before–after.</p></div>
+      <div class="project-grid">
+        <article class="project-card project-featured reveal" data-tilt>
+          <div class="project-visual"><img src="assets/hero-background.png" alt="Tampilan hero portofolio Heldi Irwansah"><div class="project-shade"></div><span>LIVE WEBSITE</span></div>
+          <div class="project-body"><div class="project-number">01</div><div><p class="project-type">Web Development · 2026</p><h3>Portofolio Saya</h3><p>Website personal dengan layout responsif, animasi scroll, elemen 3D, pemutar audio, dan deployment aktif.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub</span></div></div></div>
         </article>
-
-        <article class="project project-blue reveal" tabindex="0" data-tilt>
-          <div class="project-meta"><span>02 / Creative AI</span><span>Image transformation</span></div>
-          <div class="project-art project-photo-art" aria-hidden="true">
-            <img src="assets/tigreal-transformation.png" alt="">
-            <div class="project-photo-shade"></div>
-            <span class="photo-kicker">IDENTITY → HERO</span>
-            <b>HUMAN<br>TO TIGREAL</b>
-            <small>Concept · Direction · Image editing</small>
-          </div>
-          <div class="project-info"><h3>Hero Transformation</h3><p>Transformasi foto menjadi karakter guardian dengan identitas wajah tetap dipertahankan.</p></div>
+        <article class="project-card reveal" data-tilt>
+          <div class="project-visual"><img src="assets/barca-3d-stadium.png" alt="Visual stadion 3D bernuansa Barcelona"><div class="project-shade"></div><span>3D VISUAL</span></div>
+          <div class="project-body"><div class="project-number">02</div><div><p class="project-type">Creative Development · 2026</p><h3>Barcelona Experience</h3><p>Eksperimen visual web dengan stadion sinematik, perspektif 3D, parallax, floating cards, dan audio anthem.</p><div class="tags"><span>CSS 3D</span><span>Motion</span><span>JavaScript</span></div></div></div>
         </article>
-
-        <article class="project project-light reveal" tabindex="0" data-tilt>
-          <div class="project-meta"><span>03 / Visual experience</span><span>Design · Audio</span></div>
-          <div class="project-art project-photo-art stadium-art" aria-hidden="true">
-            <img src="assets/hero-background.png" alt="">
-            <div class="project-photo-shade"></div>
-            <span class="photo-kicker">VISUAL COMPOSITION</span>
-            <b>BARÇA<br>ATMOSPHERE</b>
-            <small>Photo composition · Anthem player · Parallax</small>
-          </div>
-          <div class="project-info"><h3>Barcelona Experience</h3><p>Komposisi stadion, warna klub, parallax hero, dan pemutar anthem dalam satu pengalaman web.</p></div>
+        <article class="project-card project-code reveal" data-tilt>
+          <div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i></div><code><span>$</span> git clone portfolio<br><span>$</span> npm run create<br><span>&gt;</span> building ideas...<br><span>&gt;</span> deployment ready ✓</code></div>
+          <div class="project-body"><div class="project-number">03</div><div><p class="project-type">Developer Workflow</p><h3>GitHub Repository</h3><p>Source code portofolio dikelola dengan commit terstruktur dan tersedia langsung di GitHub.</p><div class="tags"><span>Git</span><span>GitHub</span><span>Version Control</span></div></div></div>
         </article>
       </div>
     </section>
 
-    <section class="barca-feature section-pad" id="barca">
-      <div class="barca-heading">
-        <div class="section-label reveal"><span>04</span><p>Personal inspiration</p></div>
-        <h2 class="reveal">PASSION<br><em>IN MOTION.</em></h2>
-        <p class="reveal">Barcelona memberi inspirasi lewat keberanian, kreativitas, dan permainan yang punya identitas—nilai yang saya bawa ke dalam karya digital.</p>
+    <section class="education section" id="pendidikan">
+      <div class="section-heading reveal">
+        <span class="section-index">04</span>
+        <p class="section-kicker">Alumni & pendidikan</p>
+        <h2>Riwayat pendidikan dan <em>perkembangan saya.</em></h2>
       </div>
+      <div class="education-card reveal">
+        <div class="education-line"><i></i></div>
+        <div class="education-year">DATA<br>PENDIDIKAN</div>
+        <div class="education-content"><p class="education-label">Sekolah / kampus · jurusan · tahun</p><h3>Data alumni belum diberikan</h3><p>Bagian ini sudah disiapkan khusus untuk nama sekolah atau kampus, jurusan, dan tahun pendidikan. Data tidak saya karang agar profil Heldi tetap akurat.</p><span>Menunggu data pendidikan Heldi</span></div>
+      </div>
+    </section>
+
+    <section class="github section" id="github">
+      <div class="github-shell reveal" data-tilt>
+        <div class="github-copy">
+          <div class="github-icon" aria-hidden="true">&lt;/&gt;</div>
+          <p class="section-kicker">GitHub profile</p>
+          <h2>Cipoy404/<br><span>portofolio-saya</span></h2>
+          <p>Repository utama yang menyimpan source code website ini. Setiap perkembangan dicatat melalui commit dan disinkronkan ke branch utama.</p>
+          <a class="button button-light" href="https://github.com/Cipoy404/portofolio-saya" target="_blank" rel="noreferrer">Buka repository <span>↗</span></a>
+        </div>
+        <div class="github-panel">
+          <div class="repo-head"><span class="repo-dot"></span><strong>portofolio-saya</strong><small>Private repository</small></div>
+          <div class="repo-stats"><div><strong>main</strong><span>Default branch</span></div><div><strong>Active</strong><span>Development</span></div><div><strong>2026</strong><span>Created</span></div></div>
+          <div class="contribution-label"><span>Development activity</span><small>less → more</small></div>
+          <div class="contribution-grid" aria-hidden="true"></div>
+          <div class="last-commit"><span>●</span><p><strong>Latest updates</strong><small>Developer content · 3D motion · responsive layout</small></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="barca section" id="barcelona">
+      <div class="barca-head reveal"><div><p class="section-kicker">Personal side</p><h2>More than code.<br><em>Visca Barça.</em></h2></div><p>Barcelona adalah bagian dari identitas personal saya. Semangat, kreativitas, dan keberanian bermain menjadi inspirasi dalam membangun karya digital.</p></div>
       <div class="barca-stage reveal" data-tilt>
-        <img src="assets/barca-3d-stadium.png" alt="Visual 3D stadion sepak bola bernuansa biru dan merah" loading="lazy">
-        <div class="barca-vignette" aria-hidden="true"></div>
-        <div class="barca-grid" aria-hidden="true"></div>
-        <div class="barca-profile-badge">
-          <div class="profile-rings" aria-hidden="true"><i></i><i></i><i></i></div>
-          <img src="assets/profile.jpg" alt="Foto profil Heldi Irwansah">
-          <div class="profile-badge-copy"><small>IT CREATOR · CULER</small><strong>HELDI<br>IRWANSAH</strong><span>PORTFOLIO ID / 2026</span></div>
-        </div>
-        <div class="float-panel panel-top"><small>VISUAL DNA</small><strong>BLAUGRANA</strong><span>CREATIVITY · COURAGE · IDENTITY</span></div>
-        <div class="float-panel panel-score"><small>MATCHDAY MODE</small><strong>90:00</strong><span>PASSION NEVER STOPS</span></div>
-        <div class="float-panel panel-tech"><small>BUILT WITH</small><strong>3D + MOTION</strong><span>CSS PERSPECTIVE / PARALLAX</span></div>
-        <div class="stage-caption"><span>BARCELONA INSPIRED</span><p>Bukan sekadar klub favorit—tetapi energi visual yang menjadi bagian dari identitas portofolio.</p></div>
+        <img src="assets/barca-3d-stadium.png" alt="Stadion sepak bola 3D dengan atmosfer biru merah">
+        <div class="barca-overlay"></div>
+        <div class="barca-profile"><img src="assets/profile.jpg" alt="Foto profil Heldi Irwansah"><div><small>DEVELOPER · CULER</small><strong>HELDI IRWANSAH</strong><span>Code with passion.</span></div></div>
+        <div class="floating-stat stat-one"><small>FAVORITE CLUB</small><strong>FC BARCELONA</strong><span>🔵 🔴</span></div>
+        <div class="floating-stat stat-two"><small>BUILD MODE</small><strong>PASSION: ON</strong><span>90:00</span></div>
+        <div class="barca-caption"><span>BARCELONA INSPIRED EXPERIENCE</span><p>3D perspective · parallax · motion · anthem</p></div>
       </div>
     </section>
 
-    <section class="transformation section-pad" id="transformation">
-      <div class="transformation-heading">
-        <div class="section-label reveal"><span>05</span><p>Creative technology</p></div>
-        <h2 class="reveal">FROM SUIT<br><em>TO GUARDIAN.</em></h2>
-        <p class="reveal">Sebuah studi transformasi visual: mempertahankan identitas wajah, lalu membangun ulang karakter melalui armor, warna, cahaya, dan atmosfer.</p>
-      </div>
-      <div class="transformation-stage reveal">
-        <div class="morph-card" style="--reveal: 52%">
-          <img class="morph-before" src="assets/tigreal-source.jpg" alt="Foto formal Heldi sebelum transformasi" loading="lazy">
-          <div class="morph-after-wrap" aria-hidden="true">
-            <img class="morph-after" src="assets/tigreal-transformation.png" alt="">
-          </div>
-          <div class="morph-handle" aria-hidden="true"><span>↔</span></div>
-          <div class="morph-label morph-label-before"><small>FORM 01</small><strong>MANUSIA</strong></div>
-          <div class="morph-label morph-label-after"><small>FORM 02</small><strong>TIGREAL</strong></div>
-          <input class="morph-range" type="range" min="0" max="100" value="52" aria-label="Geser untuk melihat transformasi dari manusia menjadi Tigreal">
-        </div>
-        <div class="morph-instruction"><span>Geser untuk transformasi</span><i aria-hidden="true">← &nbsp; →</i></div>
-      </div>
-      <div class="transformation-notes reveal">
-        <div><span>Identity</span><p>Wajah, ekspresi, dan karakter personal tetap dipertahankan.</p></div>
-        <div><span>Direction</span><p>Armor tank biru–emas dengan siluet ksatria pelindung.</p></div>
-        <div><span>Mood</span><p>Cinematic, heroik, kuat, namun tetap terasa personal.</p></div>
+    <section class="verse section" id="prinsip">
+      <div class="verse-card reveal" data-tilt>
+        <p class="section-kicker">Pengingat dalam proses</p>
+        <p class="surah">QS. ASY-SYARḤ · 94:5–6</p>
+        <div class="ayah"><span>٥</span><p class="arabic" lang="ar" dir="rtl">فَاِنَّ مَعَ الْعُسْرِ يُسْرًاۙ</p><p class="latin">Fa'inna ma‘al-‘usri yusrā(n).</p><p>“Maka, sesungguhnya beserta kesulitan ada kemudahan.”</p></div>
+        <div class="verse-divider">✦</div>
+        <div class="ayah"><span>٦</span><p class="arabic" lang="ar" dir="rtl">اِنَّ مَعَ الْعُسْرِ يُسْرًاۗ</p><p class="latin">Inna ma‘al-‘usri yusrā(n).</p><p>“Sesungguhnya beserta kesulitan ada kemudahan.”</p></div>
+        <a href="https://quran.kemenag.go.id/quran/per-ayat/surah/94?from=1&amp;to=8" target="_blank" rel="noreferrer">Sumber: Qur’an Kemenag ↗</a>
       </div>
     </section>
 
-    <section class="quran-section section-pad" id="inspirasi">
-      <div class="quran-orb orb-a" aria-hidden="true"></div>
-      <div class="quran-orb orb-b" aria-hidden="true"></div>
-      <div class="quran-heading">
-        <div class="section-label reveal"><span>06</span><p>Pengingat & prinsip</p></div>
-        <p class="reveal">Ketika proses terasa sulit, ayat ini mengingatkan saya untuk tetap belajar, berusaha, dan percaya bahwa kemudahan selalu menyertai kesulitan.</p>
-      </div>
-      <div class="quran-card reveal" data-tilt>
-        <div class="quran-mark" aria-hidden="true">۞</div>
-        <p class="surah-name">QS. ASY-SYARḤ · 94:5–6</p>
-        <div class="ayah-block">
-          <span class="ayah-number">٥</span>
-          <p class="arabic" lang="ar" dir="rtl">فَاِنَّ مَعَ الْعُسْرِ يُسْرًاۙ</p>
-          <p class="transliteration">Fa'inna ma‘al-‘usri yusrā(n).</p>
-          <p class="translation">“Maka, sesungguhnya beserta kesulitan ada kemudahan.”</p>
-        </div>
-        <div class="ayah-divider"><i></i><span>✦</span><i></i></div>
-        <div class="ayah-block">
-          <span class="ayah-number">٦</span>
-          <p class="arabic" lang="ar" dir="rtl">اِنَّ مَعَ الْعُسْرِ يُسْرًاۗ</p>
-          <p class="transliteration">Inna ma‘al-‘usri yusrā(n).</p>
-          <p class="translation">“Sesungguhnya beserta kesulitan ada kemudahan.”</p>
-        </div>
-        <a class="quran-source" href="https://quran.kemenag.go.id/quran/per-ayat/surah/94?from=1&amp;to=8" target="_blank" rel="noreferrer">Teks & terjemahan: Qur’an Kemenag ↗</a>
-      </div>
-      <p class="quran-reflection reveal">SULIT BUKAN BERARTI BERHENTI. <span>TERUS BELAJAR, TERUS BERTUMBUH.</span></p>
-    </section>
-
-    <section class="profile section-pad" id="profil">
-      <div class="profile-photo reveal">
-        <img src="assets/profile.jpg" alt="Potret formal Heldi Irwansah" loading="lazy">
-        <span class="photo-tag">Based in Indonesia</span>
-      </div>
-      <div class="profile-copy">
-        <div class="section-label reveal"><span>07</span><p>Profil</p></div>
-        <h2 class="reveal">Belajar teknologi.<br><em>Membangun solusi.</em></h2>
-        <p class="reveal">Saya adalah pelajar IT yang terus mengembangkan kemampuan teknis dan kreatif. Saya terbiasa belajar melalui praktik, mencoba solusi, menemukan kesalahan, lalu memperbaikinya.</p>
-        <dl class="profile-facts reveal">
-          <div><dt>Fokus</dt><dd>Web · UI/UX · IT Support</dd></div>
-          <div><dt>Status</dt><dd>IT Student · Open to learn</dd></div>
-          <div><dt>Bahasa</dt><dd>Indonesia</dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="contact section-pad" id="kontak">
-      <div class="contact-glow" aria-hidden="true"></div>
-      <div class="section-label reveal"><span>08</span><p>Mari terhubung</p></div>
-      <h2 class="reveal">Punya ide?<br><span>Kita mulai dari halo.</span></h2>
-      <div class="contact-row reveal">
-        <p>Terbuka untuk belajar bersama, mengembangkan proyek web, atau berdiskusi tentang teknologi dan desain digital.</p>
-        <div class="contact-actions">
-          <a class="button-primary" href="#karya">Lihat karya <span>↗</span></a>
-          <button class="button-ghost" type="button" data-copy="Heldi Irwansah">Salin nama</button>
-        </div>
-      </div>
-      <footer>
-        <a class="brand footer-brand" href="#home"><img src="assets/profile.jpg" alt=""><span>HI<span class="brand-dot">.</span></span></a>
-        <p>Designed with curiosity · © 2026</p>
-        <a href="#home">Kembali ke atas ↑</a>
-      </footer>
+    <section class="contact section" id="kontak">
+      <div class="contact-copy reveal"><p class="section-kicker">Mari terhubung</p><h2>Punya proyek atau ingin berdiskusi tentang web?</h2><p>Saya terbuka untuk belajar, bertukar ide, dan mengembangkan proyek digital bersama.</p></div>
+      <div class="contact-actions reveal"><a class="button button-primary" href="https://github.com/Cipoy404" target="_blank" rel="noreferrer">Temui saya di GitHub <span>↗</span></a><button class="button button-secondary" type="button" data-copy="Heldi Irwansah">Salin nama</button></div>
     </section>
   </main>
 
-  <div class="toast" role="status" aria-live="polite">Nama disalin</div>
+  <aside class="anthem-player" aria-label="Pemutar Cant del Barça">
+    <button class="anthem-toggle" type="button" aria-label="Putar Cant del Barça" aria-pressed="false"><span class="sound-bars"><i></i><i></i><i></i><i></i></span><span><small>FC Barcelona anthem</small><strong>Cant del Barça</strong></span><b>PLAY</b></button>
+    <audio id="anthem-audio" preload="metadata"><source src="https://s3.amazonaws.com/fcbarcelona-static-files/ringtones/Official-Anthem.wav" type="audio/wav"></audio>
+  </aside>
+
+  <footer class="footer"><a class="brand" href="#home"><span class="brand-mark">HI</span><span class="brand-copy"><strong>Heldi Irwansah</strong><small>Web Developer</small></span></a><p>Designed & developed with curiosity · 2026</p><a href="#home">Kembali ke atas ↑</a></footer>
+  <div class="toast" role="status" aria-live="polite">Nama berhasil disalin</div>
   <script src="script.js"></script>
 </body>
 </html>

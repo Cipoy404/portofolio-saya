@@ -1,133 +1,133 @@
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const header = document.querySelector('[data-header]');
+const progress = document.querySelector('.scroll-progress span');
 const menuButton = document.querySelector('.menu-toggle');
-const menuLinks = document.querySelectorAll('.site-nav a');
-const heroBg = document.querySelector('.hero-bg');
-const cursor = document.querySelector('.cursor');
-const projects = document.querySelectorAll('.project');
-const revealItems = document.querySelectorAll('.reveal');
-const copyButton = document.querySelector('[data-copy]');
-const toast = document.querySelector('.toast');
-const anthemPlayer = document.querySelector('.anthem-player');
-const anthemToggle = document.querySelector('.anthem-toggle');
-const anthemAudio = document.querySelector('#anthem-audio');
-const anthemState = document.querySelector('.anthem-state');
-const morphCard = document.querySelector('.morph-card');
-const morphRange = document.querySelector('.morph-range');
-const progressBar = document.querySelector('.scroll-progress span');
-const tiltItems = document.querySelectorAll('[data-tilt]');
+const navigation = document.querySelector('.site-nav');
 
-const updateHeader = () => {
-  header.classList.toggle('scrolled', window.scrollY > 30);
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
-  progressBar.style.transform = `scaleX(${progress})`;
-};
-updateHeader();
-window.addEventListener('scroll', updateHeader, { passive: true });
+function updateScrollUI() {
+  const top = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  header?.classList.toggle('scrolled', top > 24);
+  if (progress) progress.style.width = `${height > 0 ? (top / height) * 100 : 0}%`;
+}
 
-menuButton.addEventListener('click', () => {
-  const open = document.body.classList.toggle('menu-open');
-  menuButton.setAttribute('aria-expanded', String(open));
+updateScrollUI();
+window.addEventListener('scroll', updateScrollUI, { passive: true });
+
+menuButton?.addEventListener('click', () => {
+  const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+  menuButton.setAttribute('aria-expanded', String(!isOpen));
+  navigation?.classList.toggle('open', !isOpen);
+  document.body.classList.toggle('menu-open', !isOpen);
 });
 
-menuLinks.forEach((link) => link.addEventListener('click', () => {
-  document.body.classList.remove('menu-open');
-  menuButton.setAttribute('aria-expanded', 'false');
-}));
+navigation?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    menuButton?.setAttribute('aria-expanded', 'false');
+    navigation.classList.remove('open');
+    document.body.classList.remove('menu-open');
+  });
+});
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
+const revealItems = document.querySelectorAll('.reveal');
+if (reducedMotion || !('IntersectionObserver' in window)) {
+  revealItems.forEach((item) => item.classList.add('visible'));
+} else {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
       entry.target.classList.add('visible');
       observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px' });
+  revealItems.forEach((item) => revealObserver.observe(item));
+}
 
-revealItems.forEach((item, index) => {
-  item.style.transitionDelay = `${Math.min(index % 3, 2) * 90}ms`;
-  observer.observe(item);
+const sections = [...document.querySelectorAll('main section[id]')];
+const navLinks = [...document.querySelectorAll('.site-nav a')];
+if ('IntersectionObserver' in window) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
+    });
+  }, { rootMargin: '-35% 0px -58%', threshold: 0 });
+  sections.forEach((section) => sectionObserver.observe(section));
+}
+
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+if (!reducedMotion && finePointer) {
+  document.querySelectorAll('[data-tilt]').forEach((card) => {
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      const strength = card.classList.contains('skill-row') ? 2 : 4;
+      card.style.transform = `perspective(1200px) rotateX(${-y * strength}deg) rotateY(${x * strength}deg)`;
+    });
+    card.addEventListener('pointerleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+const contributionGrid = document.querySelector('.contribution-grid');
+if (contributionGrid) {
+  const pattern = [0,1,0,2,1,0,0,1,2,3,1,0,2,1,0,3,2,1,0,1,2,0,3,1,2,1,0,2,3,1,0,1,2,3,2,0,1,0,2,1,3,2,0,1,2,0,1,3,2,1,0,2,1,3];
+  pattern.forEach((level) => {
+    const cell = document.createElement('i');
+    if (level) cell.classList.add(`level-${level}`);
+    contributionGrid.appendChild(cell);
+  });
+}
+
+const player = document.querySelector('.anthem-player');
+const audio = document.querySelector('#anthem-audio');
+const audioButton = document.querySelector('.anthem-toggle');
+const audioLabel = audioButton?.querySelector('b');
+
+audioButton?.addEventListener('click', async () => {
+  if (!audio) return;
+  try {
+    if (audio.paused) await audio.play();
+    else audio.pause();
+  } catch {
+    if (audioLabel) audioLabel.textContent = 'COBA LAGI';
+  }
 });
 
-if (matchMedia('(pointer:fine)').matches) {
-  window.addEventListener('mousemove', (event) => {
-    cursor.style.left = `${event.clientX}px`;
-    cursor.style.top = `${event.clientY}px`;
-  });
-  projects.forEach((project) => {
-    project.addEventListener('mouseenter', () => cursor.classList.add('active'));
-    project.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-  });
-  tiltItems.forEach((item) => {
-    item.addEventListener('mousemove', (event) => {
-      const rect = item.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - .5;
-      const y = (event.clientY - rect.top) / rect.height - .5;
-      item.style.setProperty('--rx', `${y * -8}deg`);
-      item.style.setProperty('--ry', `${x * 10}deg`);
-    });
-    item.addEventListener('mouseleave', () => {
-      item.style.setProperty('--rx', '0deg');
-      item.style.setProperty('--ry', '0deg');
-    });
-  });
-}
+audio?.addEventListener('play', () => {
+  player?.classList.add('playing');
+  audioButton?.setAttribute('aria-pressed', 'true');
+  audioButton?.setAttribute('aria-label', 'Jeda Cant del Barça');
+  if (audioLabel) audioLabel.textContent = 'PAUSE';
+});
 
-if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY < window.innerHeight * 1.2) {
-      heroBg.style.transform = `scale(1.04) translateY(${window.scrollY * 0.09}px)`;
-    }
-  }, { passive: true });
-}
+audio?.addEventListener('pause', () => {
+  player?.classList.remove('playing');
+  audioButton?.setAttribute('aria-pressed', 'false');
+  audioButton?.setAttribute('aria-label', 'Putar Cant del Barça');
+  if (audioLabel) audioLabel.textContent = 'PLAY';
+});
 
-copyButton.addEventListener('click', async () => {
-  const value = copyButton.dataset.copy;
+const copyButton = document.querySelector('[data-copy]');
+const toast = document.querySelector('.toast');
+let toastTimer;
+copyButton?.addEventListener('click', async () => {
+  const value = copyButton.dataset.copy || '';
   try {
     await navigator.clipboard.writeText(value);
   } catch {
-    const input = document.createElement('textarea');
-    input.value = value;
-    document.body.appendChild(input);
-    input.select();
+    const field = document.createElement('textarea');
+    field.value = value;
+    field.style.position = 'fixed';
+    field.style.opacity = '0';
+    document.body.appendChild(field);
+    field.select();
     document.execCommand('copy');
-    input.remove();
+    field.remove();
   }
-  toast.classList.add('show');
-  copyButton.textContent = 'Berhasil disalin';
-  setTimeout(() => {
-    toast.classList.remove('show');
-    copyButton.textContent = 'Salin nama';
-  }, 1800);
-});
-
-anthemToggle.addEventListener('click', async () => {
-  if (anthemAudio.paused) {
-    try {
-      await anthemAudio.play();
-      anthemPlayer.classList.add('playing');
-      anthemToggle.setAttribute('aria-pressed', 'true');
-      anthemToggle.setAttribute('aria-label', 'Jeda Cant del Barça');
-      anthemState.textContent = 'PAUSE';
-    } catch {
-      anthemState.textContent = 'RETRY';
-    }
-  } else {
-    anthemAudio.pause();
-    anthemPlayer.classList.remove('playing');
-    anthemToggle.setAttribute('aria-pressed', 'false');
-    anthemToggle.setAttribute('aria-label', 'Putar Cant del Barça');
-    anthemState.textContent = 'PLAY';
-  }
-});
-
-anthemAudio.addEventListener('ended', () => {
-  anthemPlayer.classList.remove('playing');
-  anthemToggle.setAttribute('aria-pressed', 'false');
-  anthemToggle.setAttribute('aria-label', 'Putar Cant del Barça');
-  anthemState.textContent = 'PLAY';
-});
-
-morphRange.addEventListener('input', () => {
-  morphCard.style.setProperty('--reveal', `${morphRange.value}%`);
+  toast?.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast?.classList.remove('show'), 2200);
 });
