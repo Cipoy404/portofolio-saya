@@ -101,6 +101,44 @@ const player = document.querySelector('.anthem-player');
 const audio = document.querySelector('#anthem-audio');
 const audioButton = document.querySelector('.anthem-toggle');
 const audioLabel = audioButton?.querySelector('b');
+let autoScrollFrame = 0;
+
+function stopAnthemScroll() {
+  if (autoScrollFrame) cancelAnimationFrame(autoScrollFrame);
+  autoScrollFrame = 0;
+  document.documentElement.classList.remove('anthem-scrolling');
+  player?.classList.remove('auto-scrolling');
+}
+
+function startAnthemScroll() {
+  stopAnthemScroll();
+  if (!audio || audio.paused || !Number.isFinite(audio.duration) || audio.duration <= audio.currentTime) return;
+
+  if (audio.currentTime < 0.5) window.scrollTo(0, 0);
+  const startY = window.scrollY;
+  const targetY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const startAudioTime = audio.currentTime;
+  const remainingAudio = audio.duration - startAudioTime;
+  if (targetY <= startY || remainingAudio <= 0) return;
+
+  document.documentElement.classList.add('anthem-scrolling');
+  player?.classList.add('auto-scrolling');
+
+  const advance = () => {
+    if (audio.paused || audio.ended) {
+      stopAnthemScroll();
+      return;
+    }
+    const progress = Math.min(1, Math.max(0, (audio.currentTime - startAudioTime) / remainingAudio));
+    const easedProgress = progress < 0.5
+      ? 2 * progress * progress
+      : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+    window.scrollTo(0, startY + (targetY - startY) * easedProgress);
+    autoScrollFrame = requestAnimationFrame(advance);
+  };
+
+  autoScrollFrame = requestAnimationFrame(advance);
+}
 
 audioButton?.addEventListener('click', async () => {
   if (!audio) return;
@@ -117,13 +155,28 @@ audio?.addEventListener('play', () => {
   audioButton?.setAttribute('aria-pressed', 'true');
   audioButton?.setAttribute('aria-label', 'Jeda Cant del Barça');
   if (audioLabel) audioLabel.textContent = 'PAUSE';
+  startAnthemScroll();
 });
 
 audio?.addEventListener('pause', () => {
+  stopAnthemScroll();
   player?.classList.remove('playing');
   audioButton?.setAttribute('aria-pressed', 'false');
   audioButton?.setAttribute('aria-label', 'Putar Cant del Barça');
   if (audioLabel) audioLabel.textContent = 'PLAY';
+});
+
+audio?.addEventListener('seeking', () => {
+  if (!audio.paused) startAnthemScroll();
+});
+
+audio?.addEventListener('loadedmetadata', () => {
+  if (!audio.paused && !autoScrollFrame) startAnthemScroll();
+});
+
+audio?.addEventListener('ended', () => {
+  stopAnthemScroll();
+  window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
 });
 
 const copyButton = document.querySelector('[data-copy]');
