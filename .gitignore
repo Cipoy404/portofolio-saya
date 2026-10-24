@@ -1,0 +1,9 @@
+# Local visual QA and browser profiles
+qa/
+
+# Local deployment packages
+*.tar.gz
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
