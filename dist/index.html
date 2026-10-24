@@ -20,7 +20,7 @@
 
   <header class="site-header" data-header>
     <a class="brand" href="#home" aria-label="Beranda Heldi Irwansah">
-      <span class="brand-mark">HI</span>
+      <span class="brand-mark"><img src="assets/profile.jpg" alt=""></span>
       <span class="brand-copy"><strong>Heldi Irwansah</strong><small>Software Developer</small></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><i></i><i></i></button>
@@ -30,6 +30,7 @@
       <a href="#proyek">Proyek</a>
       <a href="#pendidikan">Pendidikan</a>
       <a href="#github">GitHub</a>
+      <a href="#kontak">Kontak</a>
     </nav>
   </header>
 
@@ -39,7 +40,7 @@
         <div class="availability"><i></i> Terbuka untuk belajar & berkolaborasi</div>
         <p class="eyebrow">Hello, world! Saya</p>
         <h1>Heldi<br><span>Irwansah.</span></h1>
-        <h2>Software Developer yang membangun aplikasi mobile, backend API, dan website dari proyek nyata.</h2>
+        <h2>Software Developer untuk <span class="rotating-text" data-words="Aplikasi Mobile.|Backend API.|Website Modern.">Aplikasi Mobile.</span></h2>
         <p class="hero-summary">Saya bekerja dengan Flutter dan Dart, Node.js, Fastify, MySQL, Python, serta teknologi web—sesuai proyek yang tersimpan di GitHub saya.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#proyek">Lihat proyek <span>↘</span></a>
@@ -115,6 +116,10 @@
         <article class="project-card project-code reveal" data-tilt>
           <div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i></div><code><span>def</span> binary_search(data, target):<br>&nbsp;&nbsp;left, right = 0, len(data)-1<br>&nbsp;&nbsp;<span>while</span> left &lt;= right:<br>&nbsp;&nbsp;&nbsp;&nbsp;mid = (left + right) // 2<br><span>&gt;</span> target ditemukan ✓</code></div>
           <div class="project-body"><div class="project-number">03</div><div><p class="project-type">Data Structure</p><h3>Algoritma Binary Search</h3><p>Latihan struktur data menggunakan Python untuk mengurutkan karakter dan melakukan pencarian biner.</p><div class="tags"><span>Python</span><span>Sorting</span><span>Binary Search</span></div><a class="project-link" href="https://github.com/Cipoy404/tugas_struktur_data01" target="_blank" rel="noreferrer">Lihat repository ↗</a></div></div>
+        </article>
+        <article class="project-card project-featured project-welcome reveal" data-tilt>
+          <div class="project-visual"><img src="assets/welcome-hero-v2.png" alt="Visual sambutan portofolio Heldi Irwansah di ruang kerja developer"><div class="project-shade"></div><span>LIVE WEBSITE</span><div class="welcome-overlay"><small>WELCOME TO MY PORTFOLIO</small><strong>Selamat datang.</strong><p>Saya Heldi Irwansah—mari jelajahi perjalanan dan karya saya.</p></div></div>
+          <div class="project-body"><div class="project-number">04</div><div><p class="project-type">Personal Portfolio · Live</p><h3>Portofolio Heldi Irwansah</h3><p>Ruang digital personal dengan animasi teks, perspektif 3D, visual interaktif, identitas Barcelona, riwayat pendidikan, dan akses langsung ke seluruh kontak.</p><div class="tags"><span>HTML</span><span>CSS 3D</span><span>JavaScript</span><span>Sites</span></div><a class="project-link" href="#home">Buka halaman utama ↑</a></div></div>
         </article>
       </div>
     </section>
@@ -196,8 +201,14 @@
     </section>
 
     <section class="contact section" id="kontak">
-      <div class="contact-copy reveal"><p class="section-kicker">Mari terhubung</p><h2>Punya ide aplikasi, backend, atau website?</h2><p>Saya terbuka untuk belajar, bertukar ide, dan mengembangkan proyek digital bersama.</p></div>
-      <div class="contact-actions reveal"><a class="button button-primary" href="https://github.com/Cipoy404" target="_blank" rel="noreferrer">Temui saya di GitHub <span>↗</span></a><button class="button button-secondary" type="button" data-copy="Heldi Irwansah">Salin nama</button></div>
+      <div class="contact-copy reveal"><p class="section-kicker">Mari terhubung</p><h2>Punya ide aplikasi, backend, atau website?</h2><p>Saya terbuka untuk belajar, bertukar ide, dan mengembangkan proyek digital bersama. Pilih platform yang paling nyaman—semua tombol terhubung langsung.</p></div>
+      <div class="social-grid reveal">
+        <a class="social-card social-email" href="mailto:heldiirwansyah7@gmail.com?subject=Halo%20Heldi%20dari%20Portofolio"><span class="social-icon">@</span><div><small>Email</small><strong>heldiirwansyah7@gmail.com</strong></div><b>↗</b></a>
+        <a class="social-card social-wa" href="https://wa.me/6289531541524?text=Halo%20Heldi%2C%20saya%20melihat%20portofolio%20Anda." target="_blank" rel="noreferrer"><span class="social-icon">WA</span><div><small>WhatsApp</small><strong>+62 895-3154-1524</strong></div><b>↗</b></a>
+        <a class="social-card social-ig" href="https://www.instagram.com/cipoy404?dlrf=MXc1ZmRqbmYyM3Z0cw==" target="_blank" rel="noreferrer"><span class="social-icon">IG</span><div><small>Instagram</small><strong>@cipoy404</strong></div><b>↗</b></a>
+        <a class="social-card social-fb" href="https://www.facebook.com/share/1EksENAPA8/" target="_blank" rel="noreferrer"><span class="social-icon">f</span><div><small>Facebook</small><strong>Heldi Irwansah</strong></div><b>↗</b></a>
+        <a class="social-card social-github" href="https://github.com/Cipoy404" target="_blank" rel="noreferrer"><span class="social-icon">&lt;/&gt;</span><div><small>GitHub</small><strong>Cipoy404</strong></div><b>↗</b></a>
+      </div>
     </section>
   </main>
 
@@ -206,7 +217,7 @@
     <audio id="anthem-audio" preload="metadata"><source src="https://s3.amazonaws.com/fcbarcelona-static-files/ringtones/Official-Anthem.wav" type="audio/wav"></audio>
   </aside>
 
-  <footer class="footer"><a class="brand" href="#home"><span class="brand-mark">HI</span><span class="brand-copy"><strong>Heldi Irwansah</strong><small>Software Developer</small></span></a><p>Designed & developed with curiosity · 2026</p><a href="#home">Kembali ke atas ↑</a></footer>
+  <footer class="footer"><a class="brand" href="#home"><span class="brand-mark"><img src="assets/profile.jpg" alt=""></span><span class="brand-copy"><strong>Heldi Irwansah</strong><small>Software Developer</small></span></a><p>Designed & developed with curiosity · 2026</p><a href="#home">Kembali ke atas ↑</a></footer>
   <div class="toast" role="status" aria-live="polite">Nama berhasil disalin</div>
   <script src="script.js"></script>
 </body>

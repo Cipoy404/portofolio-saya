@@ -55,6 +55,22 @@ if ('IntersectionObserver' in window) {
   sections.forEach((section) => sectionObserver.observe(section));
 }
 
+const rotatingText = document.querySelector('[data-words]');
+if (rotatingText && !reducedMotion) {
+  const words = (rotatingText.dataset.words || '').split('|').filter(Boolean);
+  let wordIndex = 0;
+  if (words.length > 1) {
+    window.setInterval(() => {
+      rotatingText.classList.add('is-changing');
+      window.setTimeout(() => {
+        wordIndex = (wordIndex + 1) % words.length;
+        rotatingText.textContent = words[wordIndex];
+        rotatingText.classList.remove('is-changing');
+      }, 220);
+    }, 2400);
+  }
+}
+
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 if (!reducedMotion && finePointer) {
   document.querySelectorAll('[data-tilt]').forEach((card) => {
